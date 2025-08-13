@@ -1,0 +1,7 @@
+// Inserting at the end O(1)
+// Deleting at the end O(n)
+// Inserting at the beginning O(1)
+// Removing at the beginning O(1)
+// Inserting at a certain position O(n)
+// Deleting at a certain position O(n)
+// Searching at a certain position or value O(n)
