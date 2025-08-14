@@ -72,29 +72,25 @@ class LinkedList {
 
     findKthNodeFromEnd( k ) {
 
+        if ( !this.head ) return null
+
         let fast = this.head
         let slow = this.head
-    
-        for( let i = 0; i < k; i++ ) {
-            if ( fast === null ) return null
-            fast = fast.next
-        } 
 
-        while( fast !== null ) {
+        
+        while( fast !== null && fast.next !== null ) {
             slow = slow.next
-            fast = fast.next
-        } 
+            
+            let i = 0
+            while ( i < k ) {
+                fast = fast.next           
+                if ( fast === null && fast.next === null ) return slow 
+            }
 
-        return slow
+        }
+
+        return null
 
     }
 
 }
-
-const myLinkedList = new LinkedList(10)
-myLinkedList.push(20)
-myLinkedList.push(30)
-myLinkedList.push(40)
-myLinkedList.push(50)
-
-console.log(myLinkedList.findKthNodeFromEnd(6))
