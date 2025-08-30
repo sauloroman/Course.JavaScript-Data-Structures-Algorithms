@@ -72,25 +72,21 @@ class LinkedList {
 
     findKthNodeFromEnd( k ) {
 
-        if ( !this.head ) return null
-
+        if ( !this.head ) return undefined
         let fast = this.head
         let slow = this.head
-
         
-        while( fast !== null && fast.next !== null ) {
-            slow = slow.next
-            
-            let i = 0
-            while ( i < k ) {
-                fast = fast.next           
-                if ( fast === null && fast.next === null ) return slow 
-            }
-
+        for ( let i = 0; i < k; i++ ) {
+            if ( fast === null ) return undefined
+            fast = fast.next
         }
-
-        return null
-
+        
+        while ( fast !== null ) {
+            slow = slow.next
+            fast = fast.next
+        }
+        
+        return slow
     }
 
 }
